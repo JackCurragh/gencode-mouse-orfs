@@ -5,10 +5,10 @@ process INFLATE {
 	    file bam 
 
 	output:
-	    tuple path("*.bam") path("*.bai")
+	    path "*.inflated.bam", emit: inflated_bam
 
     script:
         """
-        metaplots -a $params.ribocode_annotation -r $bam 
+        RDP-Tools inflate ${bam} 
         """
 }

@@ -7,7 +7,7 @@ process INDEX {
 	    file bam 
 
 	output:
-	    tuple path("*.bam") path("*.bai")
+	    tuple path("*.bam"), path("*.bai")
 
     script:
         """

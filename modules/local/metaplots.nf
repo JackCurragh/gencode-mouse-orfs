@@ -4,10 +4,11 @@ process METAPLOTS {
     container 'docker://quay.io/biocontainers/ribocode:1.2.15--pyhfa5458b_0'
 	
 	input:
-	    file bam 
+	    tuple path(bam), path(bai)  
 
 	output:
-	    tuple path("*.bam") path("*.bai")
+	    tuple path("*.bam"), path("*.bai"), emit: bam
+        path "config.txt", emit: config
 
     script:
         """
