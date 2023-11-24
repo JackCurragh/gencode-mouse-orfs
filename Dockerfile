@@ -1,17 +1,8 @@
-FROM ubuntu:latest
+# Use an official Python runtime as a parent image
+FROM python:3.8-slim
 
-# Install necessary packages
-RUN apt-get update && apt-get install -y \
-    wget \
-    unzip \
-    default-jre \
-    perl
+# Set the working directory to /app
+WORKDIR /app
 
-# Download and install FastQC
-RUN wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.9.zip && \
-    unzip fastqc_v0.11.9.zip && \
-    chmod +x FastQC/fastqc && \
-    ln -s /FastQC/fastqc /usr/local/bin/fastqc
-
-# Set the default command
-CMD ["ls"]
+# Install RiboSeq-DP-Tools from PyPI
+RUN pip install RiboSeq-DP-Tools

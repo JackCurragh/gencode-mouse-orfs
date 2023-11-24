@@ -1,6 +1,8 @@
 
 process INFLATE {
 	
+    container 'docker://quay.io/jackcurragh/rdp-tools:latest'
+
 	input:
 	    file bam 
 

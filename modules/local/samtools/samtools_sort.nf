@@ -8,10 +8,10 @@ process SAMTOOLS_SORT {
 	    file bam 
 
 	output:
-	    path("*.bam.sorted")
+	    path("*sorted.bam")
 
     script:
         """
-        samtools sort ${bam} -o ${bam}.sorted
+        samtools sort ${bam} -o ${bam.simpleName}.sorted.bam
         """
 }

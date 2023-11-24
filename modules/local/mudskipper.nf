@@ -5,12 +5,13 @@ process MUDSKIPPER {
 	
 	input:
 	    tuple file(bam), file(index)
+        path(mudskipper_index)
 
 	output:
 	    path "*trans.bam"
 
     script:
         """
-        mudskipper bulk --alignment ${bam} --out ${bam}.trans.bam --index $params.mudskipper_index
+        mudskipper bulk --alignment ${bam} --out ${bam}.trans.bam --index ${mudskipper_index}
         """
 }
