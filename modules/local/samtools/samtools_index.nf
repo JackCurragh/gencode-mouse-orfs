@@ -1,5 +1,5 @@
 
-process INDEX {
+process SAMTOOLS_INDEX {
 
     container 'docker://quay.io/biocontainers/samtools:1.18--h50ea8bc_1'
     
