@@ -1,0 +1,8 @@
+name: psite
+channels:
+  - defaults
+dependencies:
+  - python
+  - pip
+  - pip:
+    - psite

@@ -10,7 +10,7 @@ process METAPLOTS {
         path ribocode_annotation
 
 	output:
-	    tuple path("*.bam"), path("*.bai"), emit: bam
+	    tuple path("*.bam", includeInputs: true), path("*.bai", includeInputs: true), emit: bam
         path "config.txt", emit: config
 
     script:

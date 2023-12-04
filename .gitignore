@@ -11,3 +11,4 @@ data/
 *.html
 *.zip
 singularity/*
+scripts/psite_analysis

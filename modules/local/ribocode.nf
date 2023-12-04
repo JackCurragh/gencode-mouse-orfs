@@ -5,9 +5,12 @@ process RIBOCODE {
 
     publishDir "${params.output_dir}/RiboCode/", mode: 'copy'
 	
+    maxForks 1
+
 	input:
 	    tuple path(bam), path(bai)
         path(config)
+        path(ribocode_annotation)
 
 	output:
 	    path "*.bed", emit: bed
@@ -16,6 +19,6 @@ process RIBOCODE {
 
     script:
         """
-        RiboCode -a $params.ribocode_annotation -c ${config} -l no -g -b -o ${bam.simpleName}_ORFs 
+        RiboCode -a $ribocode_annotation -c ${config} -l no -g -b -o ${bam.simpleName}_ORFs 
         """
 }
