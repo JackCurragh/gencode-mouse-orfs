@@ -6,7 +6,7 @@ include { bam_sort_index }                                  from './bam_sort_ind
 include { RIBOTISH }                                       from '../../modules/local/ribotish.nf'
 
 
-workflow ribocode {
+workflow ribotish {
     take:
         bam_ch
         gtf

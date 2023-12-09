@@ -59,8 +59,16 @@ workflow {
                         .ifEmpty { exit 1, "No FASTA files found in ${params.input_dir}" }
                         .collect()
 
+    genome_fasta = Channel.fromPath("${params.genome_fasta}")
+                        .ifEmpty { exit 1, "No FASTA files found in ${params.input_dir}" }
+                        .collect()
+
+    gtf = Channel.fromPath("${params.gtf}")
+                        .ifEmpty { exit 1, "No FASTA files found in ${params.input_dir}" }
+                        .collect()
+
     /// Run the subworkflow
-    orf_calling(bam_ch, transcriptome_fasta, txinfo, ribocode_annotation, mudskipper_index)
+    orf_calling(bam_ch, transcriptome_fasta, genome_fasta, gtf, txinfo, ribocode_annotation, mudskipper_index)
 }
 
 workflow.onComplete {
