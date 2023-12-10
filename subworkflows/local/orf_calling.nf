@@ -25,7 +25,7 @@ workflow orf_calling {
             trans_bam_ch        =   bam_ch
         }
 
-        // psite_ribocode  (trans_bam_ch, transcriptome_fasta, txinfo, ribocode_annotation)
+        psite_ribocode  (trans_bam_ch, transcriptome_fasta, txinfo, ribocode_annotation)
         // ribocode        (trans_bam_ch, ribocode_annotation)
         ribotish         (bam_ch, gtf, genome_fasta)
 }
